@@ -1,18 +1,10 @@
-import re
 import json
-import time
-from urllib.request import urlopen
 from bs4 import BeautifulSoup, Comment
-import urllib.request
 from bs4.element import ResultSet
-from matplotlib.pyplot import text, title
 
 # imports
-import pandas as pd
 import os
 import base64
-from requests import exceptions
-import requests
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -23,7 +15,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementClickInterceptedException, WebDriverException
 
-import multiprocessing.dummy as mp
 
 
 
