@@ -25,12 +25,6 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException,
 
 import multiprocessing.dummy as mp
 
-# proxies = {'socks5': '127.0.0.1:1080'}
-# print("Using HTTP proxy %s" % proxies['socks5'])
-proxies = {
-    'http': 'socks5://127.0.0.1:1080',
-    'https': 'socks5://127.0.0.1:1080'
-}
 
 
 def getUrl(url):
@@ -53,11 +47,10 @@ def getUrl(url):
     chrome_options.add_argument('lang=zh-CN,zh,zh-TW,en-US,en')
     chrome_options.add_argument(
         'user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36')
-    chrome_options.add_argument("proxy-server=socks5://127.0.0.1:1080")
     chrome_options.add_experimental_option(
         "excludeSwitches", ["enable-logging"])
     web_driver = webdriver.Chrome(
-        executable_path=r"D:\Download\audio-visual\youtubechannelAll\chromedriver.exe", chrome_options=chrome_options)
+        executable_path=/wd/hub, chrome_options=chrome_options)
 
     out = web_driver.get(url)
     out = web_driver.page_source
@@ -70,10 +63,6 @@ def get_user_agent():
     # some fake one I found :/
     return 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0'
 
-
-proxy_support = urllib.request.ProxyHandler({'socks5': '127.0.0.1:1080'})
-opener = urllib.request.build_opener(proxy_support)
-urllib.request.install_opener(opener)
 
 
 def b64e(s):
